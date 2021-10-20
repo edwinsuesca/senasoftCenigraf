@@ -22,10 +22,12 @@ export class PartidaController {
             //We generate the hexagesimal
             var simbolos,codigoPartida;
             simbolos = "0123456789ABCDEF";
+            codigoPartida='';
 
             for(var i = 0; i < 6; i++){
                 codigoPartida = codigoPartida + simbolos[Math.floor(Math.random() * 16)];
             }
+            
             
 
             const codigo="AB19F5";
@@ -39,7 +41,7 @@ export class PartidaController {
 
         const Indexcarta3= Math.floor(Math.random()*(cartasError.length));
         const carta3= cartasError[Indexcarta3];
-       // const cartasjugador=[carta1, carta2, carta3];
+       
         const cartasP= new Carta();
         cartasP.cartas=carta1;
         
@@ -73,7 +75,7 @@ export class PartidaController {
 
         try {
             await playerRepository.save(jugador);
-            res.status(200).json({message:'Player created successfully'});
+            res.status(200).json({message:'Player created successfully ' , codigoPartida});
         } catch (error) {
             res.status(400).json({message:'Bad code!'})
         }
@@ -81,12 +83,18 @@ export class PartidaController {
 
             const jugadores=[]
             jugadores[jugadores.length]=jugador;
-       
-           const game= new Partida();
-           game.name= codPartida,
-           game.jugador=jugadores
 
-           await gameRepository.save(game);
+            if(codPartida==codigo){
+                const game= new Partida();
+                game.name= codigoPartida,
+                game.jugador=jugadores
+     
+                await gameRepository.save(game);
+            } else {
+                res.status(204).json({message:'Incorrect code'})
+            }
+       
+
        
  
         

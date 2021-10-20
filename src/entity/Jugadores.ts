@@ -12,13 +12,17 @@ export class Jugador {
     @Column()
     nickname: string;
 
-    @OneToMany(()=>Carta, carta=> carta.jugador)
+    @OneToMany(()=>Carta, carta=> carta.jugador,{
+        eager:true,
+    })
     cartas: Carta[];
 
     @OneToMany(()=>Pregunta, pregunta=>pregunta.jugador)
     preguntas:Pregunta[];
 
-     @ManyToOne(()=>Partida, partida=>partida.jugador)
+     @ManyToOne(()=>Partida, partida=>partida.jugador,{
+         eager:true
+     })
      partida: Partida;
 
 

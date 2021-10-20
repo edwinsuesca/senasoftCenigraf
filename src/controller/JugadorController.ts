@@ -17,20 +17,21 @@ export class JugadorController {
 
         const { nickname, codPartida }= req.body;
 
-        var cProgramador=cartasProgramador;
-        var cModulo=cartasModulo;
-        var cError=cartasError;
-        
+
 
         const Indexcarta1= Math.floor(Math.random()*(cartasProgramador.length));
         const carta1= cartasProgramador[Indexcarta1];
+        
+        
 
         const indexcarta2= Math.floor(Math.random()*(cartasModulo.length));
         const carta2= cartasModulo[indexcarta2];
+        
 
         const Indexcarta3= Math.floor(Math.random()*(cartasError.length));
         const carta3= cartasError[Indexcarta3];
-       // const cartasjugador=[carta1, carta2, carta3];
+        
+       
         const cartasP= new Carta();
         cartasP.cartas=carta1;
         
@@ -60,32 +61,35 @@ export class JugadorController {
 
 
 
-        // if(!(getGame)){
-        //     return res.status(400).json({message:'Game not found! '});
-        // }
+        try {
+            const partida= await gameRepository.findOneOrFail({
+                where: {
+                    name: codPartida
+                }
+            });
 
-        const partida= await gameRepository.findOneOrFail({
-            where: {
-                name: codPartida
-            }
-        })
+            const jugador= new Jugador();
+            jugador.nickname= nickname;
+            jugador.cartas=[cartasP, cartasE, cartasM];
+            jugador.partida=partida;
+
+
+            await playerRepository.save(jugador);
+            res.status(200).json({message:'Player created successfully'});
+        } catch (error) {
+
+            res.status(200).json({message:'Incorrect code'})
+            
+        }
+
+
         
-        const jugador= new Jugador();
-        jugador.nickname= nickname;
-        jugador.cartas=[cartasP, cartasE, cartasM];
-        jugador.partida=partida;
+
         
        
         
 
-        try {
-            await playerRepository.save(jugador);
 
-            res.status(200).json({message:'Player created successfully'});
-            
-        } catch (error) {
-            res.status(400).json({message: error})
-        }
 
         
          
