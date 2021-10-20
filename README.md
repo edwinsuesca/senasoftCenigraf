@@ -1,4 +1,5 @@
 # Awesome Project Build with TypeORM
+## Comenzando 🚀
 
 Steps to run this project:
 
@@ -7,17 +8,21 @@ Steps to run this project:
 3. Create the schema in ` mysql` 
 4. Run `npm run dev` command
 5. API consults:
-   Create Game  /partida
+   _Create Game  /partida_
+   ```
    structure:
             `{`
                 `"codPartida":"codfix",`
                 `"nickname":"nicknameplayer"`
             `}`
+    ```
 
-    Enter game player  /jugador
+    _Enter game player  /jugador_
+    ```
     structure:
               `{`
                 `"codPartida":"cod",`
                 `"nickname":"nicknameplayer"`
             `}`
+    ```
     
