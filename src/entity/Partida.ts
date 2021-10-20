@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToMany} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToMany, OneToMany, JoinTable, JoinColumn, OneToOne} from "typeorm";
 import { Jugador } from "./Jugadores";
 
 @Entity()
@@ -11,20 +11,11 @@ export class Partida {
     name: string;
 
 
-    @Column()
-    creator: string;
 
-    @Column()
-    players: string;
 
-    @Column()
-    winner: string;
-
-    @Column()
-    turn: string;
-
-    @ManyToMany(()=>Jugador, jugador=>jugador.partidas)
-    jugadores:Jugador[];
+    @OneToMany(()=> Jugador, jugador=>jugador.partida)
+    @JoinColumn()
+    jugador: Jugador[];
 
 
 

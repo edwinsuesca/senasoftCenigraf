@@ -8,19 +8,28 @@ const cartasProgramador=["Pedro", "Juan", "Carlos", "Juanita", "Antonio", "Carol
 const cartasModulo=["Nomina", "Facturación", "Recibos", "Comprobantes", "Usuarios", "Contabilidad"];
 const cartasError=["404", "Stack Overflow", "Memory Out of Range", "Null pointer", "Syntax error", "Encoding error"];
 
-export class JugadorController {
 
-    static newPlayer= async (req: Request, res: Response) =>{
-        const playerRepository= getRepository(Jugador);
-        const cardRepository= getRepository(Carta);
-        const gameRepository= getRepository(Partida);
+export class PartidaController {
 
-        const { nickname, codPartida }= req.body;
+        static newGame= async (req: Request, res:Response) =>{
+            const playerRepository= getRepository(Jugador);
+            const gameRepository= getRepository(Partida);
+            const cardRepository= getRepository(Carta);
 
-        var cProgramador=cartasProgramador;
-        var cModulo=cartasModulo;
-        var cError=cartasError;
-        
+            const {codPartida, nickname}= req.body;
+
+
+            //We generate the hexagesimal
+            var simbolos,codigoPartida;
+            simbolos = "0123456789ABCDEF";
+
+            for(var i = 0; i < 6; i++){
+                codigoPartida = codigoPartida + simbolos[Math.floor(Math.random() * 16)];
+            }
+            
+
+            const codigo="AB19F5";
+
 
         const Indexcarta1= Math.floor(Math.random()*(cartasProgramador.length));
         const carta1= cartasProgramador[Indexcarta1];
@@ -58,54 +67,32 @@ export class JugadorController {
         }
 
 
-
-
-        // if(!(getGame)){
-        //     return res.status(400).json({message:'Game not found! '});
-        // }
-
-        const partida= await gameRepository.findOneOrFail({
-            where: {
-                name: codPartida
-            }
-        })
-        
         const jugador= new Jugador();
         jugador.nickname= nickname;
         jugador.cartas=[cartasP, cartasE, cartasM];
-        jugador.partida=partida;
-        
-       
-        
 
         try {
             await playerRepository.save(jugador);
-
             res.status(200).json({message:'Player created successfully'});
-            
         } catch (error) {
-            res.status(400).json({message: error})
+            res.status(400).json({message:'Bad code!'})
         }
 
+
+            const jugadores=[]
+            jugadores[jugadores.length]=jugador;
+       
+           const game= new Partida();
+           game.name= codPartida,
+           game.jugador=jugadores
+
+           await gameRepository.save(game);
+       
+ 
         
-         
-    };
 
-    static getPlayer= async (req: Request, res: Response)=>{
-        const playerRepository= getRepository(Jugador);
-
-        try {
-            const player= await playerRepository.find();
-
-            if(player){
-               return res.status(200).json(player);
-            }else{
-              return  res.status(404).json({message: 'Not result'});
-            }
-
-        } catch (error) {
-          return  res.status(400).json({message:'Player not found'});
-        }
+    
+        
     }
 
 }

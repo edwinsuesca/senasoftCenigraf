@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany, JoinTable} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany, JoinTable, JoinColumn, ManyToOne} from "typeorm";
 import { Carta } from "./Cartas";
 import { Partida } from "./Partida";
 import { Pregunta } from "./Preguntas";
@@ -18,10 +18,11 @@ export class Jugador {
     @OneToMany(()=>Pregunta, pregunta=>pregunta.jugador)
     preguntas:Pregunta[];
 
+     @ManyToOne(()=>Partida, partida=>partida.jugador)
+     partida: Partida;
 
-    @ManyToMany(()=> Partida, partida=>partida.jugadores)
-    @JoinTable()
-    partidas: Partida[];
+
+
 
 
 }
