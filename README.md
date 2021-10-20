@@ -8,7 +8,7 @@ Steps to run this project:
 3. Create the schema in ` mysql` 
 4. Run `npm run dev` command
 5. **API consults:**
-  -[x] _Create Game   http://localhost:3000/partida_
+  - [x] _Create Game   http://localhost:3000/partida_
    ```
    structure:
             {
@@ -17,7 +17,7 @@ Steps to run this project:
             }
     ```
 
-   -[x] _Enter game player  http://localhost:3000/jugador_
+   - [x] _Enter game player  http://localhost:3000/jugador_
     ```
     structure:
               {
