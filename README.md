@@ -7,22 +7,22 @@ Steps to run this project:
 2. Setup database settings inside `ormconfig.json  and add your credentials` file
 3. Create the schema in ` mysql` 
 4. Run `npm run dev` command
-5. API consults:
-   _Create Game  /partida_
+5. **API consults:**
+  -[x] _Create Game   http://localhost:3000/partida_
    ```
    structure:
-            `{`
-                `"codPartida":"codfix",`
-                `"nickname":"nicknameplayer"`
-            `}`
+            {
+                "codPartida":"codfix",
+                "nickname":"nicknameplayer"
+            }
     ```
 
-    _Enter game player  /jugador_
+   -[x] _Enter game player  http://localhost:3000/jugador_
     ```
     structure:
-              `{`
-                `"codPartida":"cod",`
-                `"nickname":"nicknameplayer"`
-            `}`
+              {
+                "codPartida":"cod",
+                "nickname":"nicknameplayer"
+                }
     ```
-    
+
