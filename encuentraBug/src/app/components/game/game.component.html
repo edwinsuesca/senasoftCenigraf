@@ -16,8 +16,8 @@
             </div>
 
             <div class="controls flex">
-                <button class="btn button1">Preguntar</button>
-                <button class="btn button2">Acusar</button>
+                <button class="btn button1" (click)="modePanel('question')">Preguntar</button>
+                <button class="btn button2" (click)="modePanel('accusation')">Acusar</button>
             </div>
         </div>
 
@@ -64,40 +64,40 @@
 
     </div>
     <div class="Notes" #notes>
-        <h2>Hoja de Notas</h2>
+        <h2>{{panelTitle}}</h2>
         <div class=" containerflex flex">
             <div class="dev groups flex">
                 <h3>Programadores</h3>
-                <span (mouseover)="playAudio()">Antonia</span>
-                <span (mouseover)="playAudio()">Carolina</span>
-                <span (mouseover)="playAudio()">Carlos</span>
-                <span (mouseover)="playAudio()">Juan</span>
-                <span (mouseover)="playAudio()">Juanita</span>
-                <span (mouseover)="playAudio()">Manuel</span>
-                <span (mouseover)="playAudio()">Pedro</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Antonia')">Antonia</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Carolina')">Carolina</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Carlos')">Carlos</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Juan')">Juan</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Juanita')">Juanita</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Manuel')">Manuel</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Pedro')">Pedro</span>
             </div>
     
             <div class="modules groups flex">
                 <h3>Módulos</h3>
-                <span>Comprobante Contable</span>
-                <span>Contabilidad</span>
-                <span>Facturación</span>
-                <span>Nómina</span>
-                <span>Recibos</span>
-                <span>Usuarios</span>
+                <span (click)="checkCard('Comprobante Contable')">Comprobante Contable</span>
+                <span (click)="checkCard('Contabilidad')">Contabilidad</span>
+                <span (click)="checkCard('Facturación')">Facturación</span>
+                <span (click)="checkCard('Nómina')">Nómina</span>
+                <span (click)="checkCard('Recibos')">Recibos</span>
+                <span (click)="checkCard('Usuarios')">Usuarios</span>
             </div>
     
             <div class="errors groups flex">
                 <h3>Errores</h3>
-                <span>Encoding error</span>
-                <span>Error 404</span>
-                <span>Memory out of range</span>
-                <span>Null pointer</span>
-                <span>Stack Overflow</span>
-                <span>Syntax error</span>
+                <span (click)="checkCard('Encoding error')">Encoding error</span>
+                <span (click)="checkCard('Error 404')">Error 404</span>
+                <span (click)="checkCard('Memory out of range')">Memory out of range</span>
+                <span (click)="checkCard('Null pointer')">Null pointer</span>
+                <span (click)="checkCard('Stack Overflow')">Stack Overflow</span>
+                <span (click)="checkCard('Syntax error')">Syntax error</span>
             </div>
         </div>
-        <div class="switch" #arrow>
+        <div class="switch" #arrow (click)="modePanel('page')">
             <div class="arrow"></div>
         </div>
     </div>
