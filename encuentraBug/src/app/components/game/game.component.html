@@ -68,37 +68,37 @@
         <div class=" containerflex flex">
             <div class="dev groups flex">
                 <h3>Programadores</h3>
-                <span (mouseover)="playAudio()" (click)="checkCard('Antonia')">Antonia</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Carolina')">Carolina</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Carlos')">Carlos</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Juan')">Juan</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Juanita')">Juanita</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Manuel')">Manuel</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Pedro')">Pedro</span>
+                <span id="antonia" #antonia (mouseover)="playAudio()" (click)="checkCard(this.antonia)">Antonia</span>
+                <span id='carolina' #carolina (mouseover)="playAudio()" (click)="checkCard(this.carolina)">Carolina</span>
+                <span id='carlos' #carlos (mouseover)="playAudio()" (click)="checkCard(this.carlos)">Carlos</span>
+                <span id='juan' #juan (mouseover)="playAudio()" (click)="checkCard(this.juan)">Juan</span>
+                <span id='juanita' #juanita (mouseover)="playAudio()" (click)="checkCard(this.juanita)">Juanita</span>
+                <span id='manuel' #manuel (mouseover)="playAudio()" (click)="checkCard(this.manuel)">Manuel</span>
+                <span id='pedro' #pedro (mouseover)="playAudio()" (click)="checkCard(this.pedro)">Pedro</span>
             </div>
     
             <div class="modules groups flex">
                 <h3>Módulos</h3>
-                <span (mouseover)="playAudio()" (click)="checkCard('Comprobante Contable')">Comprobante Contable</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Contabilidad')">Contabilidad</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Facturación')">Facturación</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Nómina')">Nómina</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Recibos')">Recibos</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Usuarios')">Usuarios</span>
+                <span id='comprobante' #comprobante (mouseover)="playAudio()" (click)="checkCard(this.comprobante)">Comprobante Contable</span>
+                <span id='contabilidad' #contabilidad (mouseover)="playAudio()" (click)="checkCard(this.contabilidad)">Contabilidad</span>
+                <span id='facturacion' #facturacion (mouseover)="playAudio()" (click)="checkCard(this.facturacion)">Facturación</span>
+                <span id='nomina' #nomina (mouseover)="playAudio()" (click)="checkCard(this.nomina)">Nómina</span>
+                <span id='recibos' #recibos (mouseover)="playAudio()" (click)="checkCard(this.recibos)">Recibos</span>
+                <span id='usuarios' #usuarios (mouseover)="playAudio()" (click)="checkCard(this.usuarios)">Usuarios</span>
             </div>
     
             <div class="errors groups flex">
                 <h3>Errores</h3>
-                <span (mouseover)="playAudio()" (click)="checkCard('Encoding error')">Encoding error</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Error 404')">Error 404</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Memory out of range')">Memory out of range</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Null pointer')">Null pointer</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Stack Overflow')">Stack Overflow</span>
-                <span (mouseover)="playAudio()" (click)="checkCard('Syntax error')">Syntax error</span>
+                <span id='encoding' #encoding (mouseover)="playAudio()" (click)="checkCard(this.encoding)">Encoding error</span>
+                <span id='error' #error (mouseover)="playAudio()" (click)="checkCard(this.error)">Error 404</span>
+                <span id='memory' #memory (mouseover)="playAudio()" (click)="checkCard(this.memory)">Memory out of range</span>
+                <span id='null' #null (mouseover)="playAudio()" (click)="checkCard(this.null)">Null pointer</span>
+                <span id='stack' #stack (mouseover)="playAudio()" (click)="checkCard(this.stack)">Stack Overflow</span>
+                <span id='syntax' #syntax (mouseover)="playAudio()" (click)="checkCard(this.syntax)">Syntax error</span>
             </div>
         </div>
-        <div class="switch" #arrow (click)="modePanel('page')">
-            <div class="arrow"></div>
+        <div class="switch" #arrowContainer (click)="modePanel('page')">
+            <div class="arrow" #arrow></div>
         </div>
     </div>
 </div>

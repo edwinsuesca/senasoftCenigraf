@@ -156,15 +156,15 @@
 
 .Notes{
   display: flex;
-  gap: 20px;
+  gap: 10px;
   position: absolute;
   background-color: $colorGray2;
-  padding: 20px;
+  padding: 10px 20px;
   justify-content: center;
-  top: -440px;
+  top: -339px; //El panel se oculta por defecto a -380px del borde superior de la pantalla
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
+  width: fit-content;
   max-width: 800px;
   border-radius: 0 0 20px 20px;
   flex-direction: column;
@@ -173,7 +173,7 @@
   box-shadow: 0 0 30px $color3;
   h2{
     font-family: planet;
-    font-size: 3em;
+    font-size: 2.3em;
     font-weight: 500;
     color: $colorGray5;
   }
@@ -182,12 +182,12 @@
     .groups {
       flex-direction: column;
       gap: 5px;
-      padding: 20px;
+      padding: 10px 0 10px 0;
       padding-left: 0;
       border-radius: 20px;
       height: fit-content;
       span{
-        font-size: 1.2em;
+        font-size: 1em;
         padding: 3px 10px;
         border-radius: 0 55px 55px 0;
         width: fit-content;
@@ -197,6 +197,7 @@
   }
 
   .switch{
+    position: relative;
     background-color: $colorGray2;
     position: absolute;
     bottom: -35px;
@@ -207,6 +208,8 @@
     display: flex;
     cursor: pointer;
     .arrow{
+      position: absolute;
+      top: 0;
       width: 100%;
       height: 100%;
       background-color: $color2;
