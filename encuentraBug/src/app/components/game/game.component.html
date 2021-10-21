@@ -1,0 +1,104 @@
+<div class="mainContainer">
+
+    <div class="board">
+        <div class="ownCards">
+            <span class="nickName">Nick Name</span>
+            <div class="flex">
+                <div class="avatarContainer">
+                    <img class="avatar" src="../../../assets/img/avatars/man1.svg" alt="">
+                </div>
+        
+                <div class="cardsContainer">
+                    <div *ngFor="let card of player1">
+                        <img class="card" src="../../../assets/img/Programadores/Carlos.svg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls flex">
+                <button class="btn button1">Preguntar</button>
+                <button class="btn button2">Acusar</button>
+            </div>
+        </div>
+
+        <div class="playerA flex">
+            <div class="avatarContainer">
+                <img class="avatar" src="../../../assets/img/avatars/man1.svg" alt="">
+            </div>
+
+            <div class="cardsPlayers">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+            </div>
+        </div>
+
+        <div class="playerB flex">
+
+            <div class="cardsPlayers">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+            </div>
+
+            <div class="avatarContainer">
+                <img class="avatar" src="../../../assets/img/avatars/man1.svg" alt="">
+            </div>
+        </div>
+
+        <div class="playerC flex">
+            <div class="avatarContainer">
+                <img class="avatar" src="../../../assets/img/avatars/man1.svg" alt="">
+            </div>
+
+            <div class="cardsPlayers">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+            </div>
+        </div>
+            
+
+    </div>
+    <div class="Notes" #notes>
+        <h2>Hoja de Notas</h2>
+        <div class=" containerflex flex">
+            <div class="dev groups flex">
+                <h3>Programadores</h3>
+                <span (mouseover)="playAudio()">Antonia</span>
+                <span (mouseover)="playAudio()">Carolina</span>
+                <span (mouseover)="playAudio()">Carlos</span>
+                <span (mouseover)="playAudio()">Juan</span>
+                <span (mouseover)="playAudio()">Juanita</span>
+                <span (mouseover)="playAudio()">Manuel</span>
+                <span (mouseover)="playAudio()">Pedro</span>
+            </div>
+    
+            <div class="modules groups flex">
+                <h3>Módulos</h3>
+                <span>Comprobante Contable</span>
+                <span>Contabilidad</span>
+                <span>Facturación</span>
+                <span>Nómina</span>
+                <span>Recibos</span>
+                <span>Usuarios</span>
+            </div>
+    
+            <div class="errors groups flex">
+                <h3>Errores</h3>
+                <span>Encoding error</span>
+                <span>Error 404</span>
+                <span>Memory out of range</span>
+                <span>Null pointer</span>
+                <span>Stack Overflow</span>
+                <span>Syntax error</span>
+            </div>
+        </div>
+        <div class="switch" #arrow>
+            <div class="arrow"></div>
+        </div>
+    </div>
+</div>

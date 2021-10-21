@@ -1,0 +1,61 @@
+
+/************Estilos globales de botones**************/
+
+.btn{
+    font-family: planet;
+    font-weight: 700;
+    padding: 5px 25px;
+    border-radius: 50px;
+    min-width: 100px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.1s ease-in-out;
+}
+
+.button1{
+    font-size: 2em;
+    background-color: $color1;
+    color: $colorGray1;
+}
+
+.button2{
+    background-color: $color5;
+    color: $colorGray5;
+}
+
+.botonDeshabilitado{
+    background-color: $colorGray3;
+    color: $colorGray2;
+}
+
+.input{
+    width: 100%;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    font-size: 2em;
+    padding: 5px 20px;
+    font-weight: bold;
+    color: $colorGray1;
+    text-align: center;
+}
+
+.input::placeholder{
+    color: $colorGray4;
+    font-weight: bold;
+    text-align: center;
+}
+
+.input:focus{
+    outline: none;
+}
+
+.flex{
+    display: flex;
+}
+
+.flexColumn{
+    display: flex;
+    flex-direction: column;
+}
