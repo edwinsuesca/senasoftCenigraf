@@ -79,22 +79,22 @@
     
             <div class="modules groups flex">
                 <h3>Módulos</h3>
-                <span (click)="checkCard('Comprobante Contable')">Comprobante Contable</span>
-                <span (click)="checkCard('Contabilidad')">Contabilidad</span>
-                <span (click)="checkCard('Facturación')">Facturación</span>
-                <span (click)="checkCard('Nómina')">Nómina</span>
-                <span (click)="checkCard('Recibos')">Recibos</span>
-                <span (click)="checkCard('Usuarios')">Usuarios</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Comprobante Contable')">Comprobante Contable</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Contabilidad')">Contabilidad</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Facturación')">Facturación</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Nómina')">Nómina</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Recibos')">Recibos</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Usuarios')">Usuarios</span>
             </div>
     
             <div class="errors groups flex">
                 <h3>Errores</h3>
-                <span (click)="checkCard('Encoding error')">Encoding error</span>
-                <span (click)="checkCard('Error 404')">Error 404</span>
-                <span (click)="checkCard('Memory out of range')">Memory out of range</span>
-                <span (click)="checkCard('Null pointer')">Null pointer</span>
-                <span (click)="checkCard('Stack Overflow')">Stack Overflow</span>
-                <span (click)="checkCard('Syntax error')">Syntax error</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Encoding error')">Encoding error</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Error 404')">Error 404</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Memory out of range')">Memory out of range</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Null pointer')">Null pointer</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Stack Overflow')">Stack Overflow</span>
+                <span (mouseover)="playAudio()" (click)="checkCard('Syntax error')">Syntax error</span>
             </div>
         </div>
         <div class="switch" #arrow (click)="modePanel('page')">
