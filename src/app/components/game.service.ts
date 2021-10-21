@@ -26,4 +26,22 @@ export class GameService {
             )              
             
   }
+
+  startPlayer(player: Player):Observable<Player|void>{
+    return this.http
+            .post<Player>(`${environment.API_URL}/jugador`, player)
+            .pipe(
+              map((jugador:Player)=>{
+                console.log('Jugador->', jugador)
+                return jugador;
+              })
+            )
+
+  
+  }
+
+  start(player:Player, game:Game){
+    this.startPlayer(player);
+    this.startGame(game);
+  }
 }
