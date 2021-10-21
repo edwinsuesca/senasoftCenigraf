@@ -1,0 +1,17 @@
+<mat-card-content class="mainContainer">
+    <img class="logo" src="../../../assets/img/logoBug.svg" alt="">
+    <button class="btn button1">Crear Partida</button>
+
+    <form [formGroup]="gameForm" (ngSubmit)="onGame()">
+     
+            <input matInput class="input" type="text" placeholder="Introducir Código" 
+            formControlName="codPartida" 
+            required>
+
+            <input matInput class="input" type="text" placeholder="Escribe tu nombre" 
+            formControlName="nickname"
+            required>
+    
+        <button class="btn button2">Unirse ahora</button>
+    </form>
+</mat-card-content>

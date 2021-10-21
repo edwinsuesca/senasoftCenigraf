@@ -1,0 +1,32 @@
+@import "./modulos/colors";
+@import "./modulos/mixin";
+@import "./modulos/fonts";
+@import "./modulos/elementos";
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "planet";
+}
+
+*::selection{
+  background-color: $color1;
+  color: $colorGray1;
+}
+
+body {
+  position: relative;
+  background-color: $colorGray1;
+}
+
+li{ list-style: none !important;}
+a{text-decoration: none !important;}
+
+.mainContainer{
+  @include flex;
+  flex-direction: column;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
