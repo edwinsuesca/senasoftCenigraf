@@ -1,0 +1,41 @@
+@import "./../../../modulos/colors";
+@import "./../../../modulos/elementos";
+@import "./../../../modulos/fonts";
+@import "./../../../modulos/media";
+@import "./../../../modulos/mixin";
+
+img{
+    width: 100%;
+    max-width: 400px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    place-items: center;
+}
+.input{
+    width: 100%;
+    margin: 0;
+}
+
+.input::placeholder{
+    color: $colorGray4;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.7em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+}
+.button1{
+    margin: 70px;
+}
+
+.button2{
+    font-size: 1.3em;
+    width: fit-content;
+    padding: 10px 20px;
+}

@@ -1,6 +1,6 @@
 <mat-card-content class="mainContainer">
     <img class="logo" src="../../../assets/img/logoBug.svg" alt="">
-    <button class="btn button1">Crear Partida</button>
+    <button class="btn button1">Ingresa el código AB19F5</button>
 
     <form [formGroup]="gameForm" (ngSubmit)="onGame()">
      
@@ -8,7 +8,7 @@
             formControlName="codPartida" 
             required>
 
-            <input matInput class="input" type="text" placeholder="Escribe tu nombre" 
+            <input matInput class="input" type="text" placeholder="Nickname" 
             formControlName="nickname"
             required>
     
