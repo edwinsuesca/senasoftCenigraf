@@ -4,12 +4,20 @@
 @import "./../../../modulos/media";
 @import "./../../../modulos/mixin";
 
-.flex{
-    justify-content: space-around;
+img{
+    width: 100%;
+    max-width: 400px;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    place-items: center;
+}
 .input{
-    width: 50%;
+    width: 100%;
+    margin: 0;
 }
 
 .input::placeholder{
@@ -28,4 +36,6 @@
 
 .button2{
     font-size: 1.3em;
+    width: fit-content;
+    padding: 10px 20px;
 }
