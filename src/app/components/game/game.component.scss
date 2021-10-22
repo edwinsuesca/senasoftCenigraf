@@ -9,6 +9,71 @@
   width: 100vw;
   height: 100vh;
   max-width: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .generateQuestion{
+    opacity: 0;
+    width: 100%;
+    max-width: 700px;
+    height: fit-content;
+    padding: 20px;
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.164),transparent);
+    z-index: 5;
+    gap: 10px;
+    transition: all 0.5s ease-in-out;
+    .cartas{
+      display: flex;
+      gap: 15px;
+      
+      img{
+        height: 150px;
+        animation: rotateCard 5s infinite ease-in-out;
+      }
+
+      img:nth-child(1){
+        animation-delay: 0s;
+      }
+
+      img:nth-child(2){
+        animation-delay: 0.1s;
+      }
+
+      img:nth-child(3){
+        animation-delay: 0.2s;
+      }
+    }
+
+    .actionTurn{
+      display: none;
+      font-weight: 500;
+      font-size: 1.3em;
+      padding: 5px 10px;
+      background-color: $color3;
+      color: $colorGray5;
+      border-radius: 50px;
+    }
+
+    .sentence{
+      display: flex;
+      gap: 20px;
+      width: 100%;
+      padding: 10px;
+      justify-content: center;
+      align-items: center;
+      span{
+        color: $colorGray4;
+        font-size: 1.4em;
+        text-align: center;
+      }
+    }
+  }
 }
 
 .ownCards {
@@ -49,11 +114,12 @@
 }
 
   .cardsContainer {
+    margin-top: 10px;
     grid-area: cards;
     display: flex;
-    gap: 10px;
     .card {
-      width: 100%;
+      height: 130px;
+      margin: 4px;
     }
   }
 }
@@ -84,6 +150,16 @@
   transform: translateX(-50%);
   padding: 20px;
   gap: 40px;
+  .nickName{
+    position: absolute;
+    color: $colorGray5;
+    font-family: planet;
+    font-weight: 400;
+    font-size: 1.7em;
+    letter-spacing: 0.5px;
+    width: fit-content;
+  }
+
   .avatarContainer{
     background-color: $colorGray5;
     border-radius: 100%;
@@ -108,7 +184,13 @@
   }
 }
 
-.playerB, .playerC{
+.playerB{
+  .nickName{
+    top: 130px;
+  }
+}
+
+.playerA, .playerC{
   top: 45%;
   left: initial;
   right: 0;
@@ -116,6 +198,15 @@
   transform: translateY(-50%);
   flex-direction: column;
   align-items: center;
+  .nickName{
+    transform: rotateZ(-90deg);
+    width: fit-content;
+    width: 500px;
+    display: grid;
+    place-items: center;
+    right: -125px;
+  }
+
   .avatarContainer{
     .avatar {
       width: 75px;
@@ -139,6 +230,10 @@
   transform: translateY(-50%);
   flex-direction: column;
   align-items: center;
+
+  .nickName{
+    left: -125px;
+  }
   .avatarContainer{
     .avatar {
       width: 75px;
@@ -156,15 +251,15 @@
 
 .Notes{
   display: flex;
-  gap: 20px;
+  gap: 0;
   position: absolute;
   background-color: $colorGray2;
-  padding: 20px;
+  padding: 10px 20px;
   justify-content: center;
-  top: -440px;
+  top: -320px; //El panel se oculta por defecto a -320px del borde superior de la pantalla
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
+  width: fit-content;
   max-width: 800px;
   border-radius: 0 0 20px 20px;
   flex-direction: column;
@@ -173,21 +268,22 @@
   box-shadow: 0 0 30px $color3;
   h2{
     font-family: planet;
-    font-size: 3em;
+    font-size: 2.3em;
     font-weight: 500;
     color: $colorGray5;
+    margin: 10px 0 0 0;
   }
   .containerflex{
     gap: 30px;
     .groups {
       flex-direction: column;
-      gap: 5px;
-      padding: 20px;
+      gap: 4px;
+      padding: 10px 0 10px 0;
       padding-left: 0;
       border-radius: 20px;
       height: fit-content;
       span{
-        font-size: 1.2em;
+        font-size: 1em;
         padding: 3px 10px;
         border-radius: 0 55px 55px 0;
         width: fit-content;
@@ -197,15 +293,19 @@
   }
 
   .switch{
+    position: relative;
     background-color: $colorGray2;
     position: absolute;
     bottom: -35px;
     height: 50px;
     width: 50px;
     border-radius: 100%;
-    z-index: -1;
+    z-index: 200;
     display: flex;
+    cursor: pointer;
     .arrow{
+      position: absolute;
+      top: 0;
       width: 100%;
       height: 100%;
       background-color: $color2;
@@ -217,8 +317,8 @@
 
 .dev{
   h3{
-    margin-bottom: 10px;
     color: $color5;
+    margin: 0;
   }
   span{
     background-color: $color5;
@@ -230,8 +330,8 @@
 
 .modules{
   h3{
-    margin-bottom: 10px;
     color: $color2;
+    margin: 0;
   }
   span{
     background-color: $color2;
@@ -244,8 +344,8 @@
 
 .errors{
   h3{
-    margin-bottom: 10px;
     color: $color3;
+    margin: 0;
   }
   span{
     background-color: $color3;
@@ -267,5 +367,19 @@
 
   100%{
     margin-top: 4px;
+  }
+}
+
+@keyframes rotateCard {
+  0%{
+    transform: rotateY(0deg);
+  }
+
+  40%{
+    transform: rotateY(360deg);
+  }
+
+  100%{
+    transform: rotateY(360deg);
   }
 }
