@@ -16,8 +16,6 @@ export class GameComponent implements OnInit, AfterViewInit {
   cartaProgramador = "";
   cartaError = "";
 
-  routeDev = "";
-
   //No borrar el constructor
   constructor( private route: ActivatedRoute, private gameSvc: GameService) {}
 
@@ -38,12 +36,15 @@ export class GameComponent implements OnInit, AfterViewInit {
   mode = "";
   prueba: any = "";
 
+  routeDev = "";
+  routeModule = "";
+  routeError = "";
+
   ngOnInit(): void {
     this.woff.volume = 0.1;
     this.ping.volume = 0.1;
     this.woff.src = "../../assets/music/uoff.mpeg";
     this.ping.src = "../../assets/music/ping.mpeg";
-
 
     //No borrar
     this.juego={
@@ -56,18 +57,21 @@ export class GameComponent implements OnInit, AfterViewInit {
 
     console.log('Programador->', this.juego.programador);
     console.log('Error->', this.juego.error);
+    console.log('Modulo->', this.juego.modulo)
     //
 
 
     this.cartaProgramador=this.juego.programador;
-    this.cartaModulo=this.juego.codigo;
+    this.cartaModulo=this.juego.modulo;
     this.cartaError=this.juego.error
      
     
 
  
 
-
+    this.routeModule = this.cartaModulo;
+    this.routeDev = this.cartaProgramador;
+    this.routeError = this.cartaError;
     
   }
 
@@ -150,9 +154,5 @@ export class GameComponent implements OnInit, AfterViewInit {
   /*const cartasProgramador=["Pedro", "Juan", "Carlos", "Juanita", "Antonio", "Carolina", "Manuel"];
 const cartasModulo=["Nomina", "Facturación", "Recibos", "Comprobantes", "Usuarios", "Contabilidad"];
 const cartasError=["404", "Stack Overflow", "Memory Out of Range", "Null pointer", "Syntax error", "Encoding error"];*/
-  // cardsDinamics(){
-  //   if(this.cartaModulo == "Pedro"){
-  //     this.routeDev = "../../../assets/img/programadores/juan.svg";
-  //   }
-  // }
+
 }

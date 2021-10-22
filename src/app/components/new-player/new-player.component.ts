@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./new-player.component.scss']
 })
 export class NewPlayerComponent implements OnInit {
-  public jugador: any;
+  public jugador: any; 
 
   private subscription: Subscription = new Subscription();
   gameForm=this.fb.group({
