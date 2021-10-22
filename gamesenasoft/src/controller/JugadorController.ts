@@ -5,7 +5,7 @@ import { Carta } from "../entity/Cartas";
 import { Partida } from "../entity/Partida";
 
 const cartasProgramador=["Pedro", "Juan", "Carlos", "Juanita", "Antonia", "Carolina", "Manuel"];
-const cartasModulo=["Nomina", "Facturación", "Recibos", "Comprobantes", "Usuarios", "Contabilidad"];
+const cartasModulo=["Nomina", "Facturacion", "Recibos", "Comprobantes", "Usuarios", "Contabilidad"];
 const cartasError=["404", "Stack Overflow", "Memory Out of Range", "Null pointer", "Syntax error", "Encoding error"];
 
 export class JugadorController {

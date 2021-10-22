@@ -15,6 +15,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   cartaModulo = "";
   cartaProgramador = "";
   cartaError = "";
+  codigo="";
 
   //No borrar el constructor
   constructor( private route: ActivatedRoute, private gameSvc: GameService) {}
@@ -39,6 +40,7 @@ export class GameComponent implements OnInit, AfterViewInit {
   routeDev = "";
   routeModule = "";
   routeError = "";
+  codeGame = "";
 
   ngOnInit(): void {
     this.woff.volume = 0.1;
@@ -63,7 +65,8 @@ export class GameComponent implements OnInit, AfterViewInit {
 
     this.cartaProgramador=this.juego.programador;
     this.cartaModulo=this.juego.modulo;
-    this.cartaError=this.juego.error
+    this.cartaError=this.juego.error;
+    this.codigo=this.juego.codigo;
      
     
 
@@ -72,6 +75,9 @@ export class GameComponent implements OnInit, AfterViewInit {
     this.routeModule = this.cartaModulo;
     this.routeDev = this.cartaProgramador;
     this.routeError = this.cartaError;
+
+
+    ///
     
   }
 
