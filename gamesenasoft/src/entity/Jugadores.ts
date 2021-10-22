@@ -21,7 +21,7 @@ export class Jugador {
     preguntas:Pregunta[];
 
      @ManyToOne(()=>Partida, partida=>partida.jugador,{
-         eager:true
+         cascade:true
      })
      partida: Partida;
 

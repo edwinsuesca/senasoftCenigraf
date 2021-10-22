@@ -68,6 +68,7 @@ export class JugadorController {
                 }
             });
 
+
             const jugador= new Jugador();
             jugador.nickname= nickname;
             jugador.cartas=[cartasP, cartasE, cartasM];
@@ -75,7 +76,7 @@ export class JugadorController {
 
 
             await playerRepository.save(jugador);
-            res.status(200).json({message:'Player created successfully'});
+            res.status(200).json({message:'Player created successfully', jugador});
         } catch (error) {
 
             res.status(200).json({message:'Incorrect code'})
@@ -111,5 +112,6 @@ export class JugadorController {
           return  res.status(400).json({message:'Player not found'});
         }
     }
+    
 
 }

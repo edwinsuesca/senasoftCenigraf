@@ -40,8 +40,13 @@ export class GameService {
   
   }
 
-  start(player:Player, game:Game){
-    this.startPlayer(player);
-    this.startGame(game);
+  getOneGame(cod: string):Observable<any>{
+    return this.http
+            .get<any>(`${environment.API_URL}/partida/${cod}`)
+
   }
+
+  
+
+
 }

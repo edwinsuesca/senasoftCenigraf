@@ -13,7 +13,9 @@ export class Partida {
 
 
 
-    @OneToMany(()=> Jugador, jugador=>jugador.partida)
+    @OneToMany(()=> Jugador, jugador=>jugador.partida,{
+        eager:true
+    })
     @JoinColumn()
     jugador: Jugador[];
 

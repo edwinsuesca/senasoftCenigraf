@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { GameService } from '../game.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Game } from 'src/app/models/player';
 
 
 @Component({
@@ -11,6 +12,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./new-game.component.scss']
 })
 export class NewGameComponent implements OnInit {
+
+  @Input() game!: Game;
   private subscription: Subscription = new Subscription();
   gameForm=this.fb.group({
     codPartida:['', Validators.required],
@@ -53,7 +56,7 @@ export class NewGameComponent implements OnInit {
       this.gameSvc.startPlayer(formValue).subscribe((res)=>{
         if(res){
           console.log(res);
-          this.router.navigate(['/game']);
+          this.router.navigate(['/game', res.codPartida]);
         }
       })
     )

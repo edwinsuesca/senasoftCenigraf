@@ -88,7 +88,7 @@ export class PartidaController {
                 try {
                     await playerRepository.save(jugador);
                     await gameRepository.save(game);
-                    res.status(200).json({message:'Player created successfully ' , codigoPartida});
+                    res.status(200).json({message:'Player created successfully ' , game});
                 } catch (error) {
                     res.status(400).json({message:'Bad code!'})
                 }
@@ -105,6 +105,45 @@ export class PartidaController {
 
     
         
+    };
+
+    static getGameId= async (req: Request, res:Response)=>{
+        const {codPartida}= req.params;
+        //const {codPartida}= req.body;
+        const gameRepository= getRepository(Partida);
+
+        try {
+            const partida= await gameRepository.findOneOrFail({
+                where: {
+                    name: codPartida
+                }
+            });
+
+            
+
+            res.send(partida);
+        } catch (error) {
+            res.status(404).json({message: ' Not result'});
+        }
+
+    };
+
+    static getGames= async (req: Request, res:Response)=>{
+        const gameRepository= getRepository(Partida);
+
+        try {
+            const game= await gameRepository.find();
+
+            if(game){
+               return res.status(200).json(game);
+            }else{
+              return  res.status(404).json({message: 'Not result'});
+            }
+
+        } catch (error) {
+          return  res.status(400).json({message:'game not found'});
+        }
+
     }
 
 }

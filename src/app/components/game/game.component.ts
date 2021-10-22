@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Game } from 'src/app/models/player';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-game',
@@ -7,6 +11,7 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angula
 })
 export class GameComponent implements OnInit, AfterViewInit {
 
+  public gameI!: Observable<Game>;
   player1 = [
     {cardType: 'programadores', name: 'Luis'},
     {cardType: 'programadores', name: 'Luis'},
@@ -35,7 +40,7 @@ export class GameComponent implements OnInit, AfterViewInit {
     {cardType: 'programadores', name: 'Luis'}
   ]
 
-  constructor() {}
+  constructor( private route: ActivatedRoute, private gameSvc: GameService) {}
 
   woff = new Audio();
   ping = new Audio();
@@ -48,6 +53,10 @@ export class GameComponent implements OnInit, AfterViewInit {
     this.ping.volume = 0.1;
     this.woff.src = "../../assets/music/uoff.mpeg";
     this.ping.src = "../../assets/music/ping.mpeg";
+
+    const codGame=this.route.snapshot.paramMap.get('codPartida')||'0';
+    this.gameI= this.gameSvc.getOneGame(codGame);
+    
   }
 
   ngAfterViewInit(): void{

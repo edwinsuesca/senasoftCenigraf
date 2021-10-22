@@ -8,6 +8,7 @@ export interface Player {
 
 
 export interface Game extends Player{
+    id?: number;
     codPartida: string;
     nickname: string;
 }
