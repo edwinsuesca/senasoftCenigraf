@@ -8,7 +8,7 @@ import { NewPlayerComponent } from './components/new-player/new-player.component
 const routes: Routes = [
   {path: '', component:HomeComponent},
   {path: 'newGame', component:NewGameComponent},
-  {path: 'game', component:GameComponent},
+  {path: 'game/:codPartida/:nickname/:programador/:error/:modulo', component:GameComponent},
   {path: 'player', component:NewPlayerComponent},
   
 ];

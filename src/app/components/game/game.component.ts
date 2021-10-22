@@ -10,8 +10,11 @@ import { GameService } from '../game.service';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit, AfterViewInit {
+  juego!:{codigo:string, nickname: string, programador:string, error:string, modulo:string}
+  
+  
 
-  public gameI!: Observable<Game>;
+
   player1 = [
     {cardType: 'programadores', name: 'Luis'},
     {cardType: 'programadores', name: 'Luis'},
@@ -54,8 +57,22 @@ export class GameComponent implements OnInit, AfterViewInit {
     this.woff.src = "../../assets/music/uoff.mpeg";
     this.ping.src = "../../assets/music/ping.mpeg";
 
-    const codGame=this.route.snapshot.paramMap.get('codPartida')||'0';
-    this.gameI= this.gameSvc.getOneGame(codGame);
+    this.juego={
+      codigo: this.route.snapshot.params.codPartida,
+      nickname: this.route.snapshot.params.nickname,
+      programador:this.route.snapshot.params.programador,
+      error:this.route.snapshot.params.error,
+      modulo: this.route.snapshot.params.modulo
+    }
+
+    console.log('Programador->', this.juego.programador);
+    console.log('Error->', this.juego.error);
+     
+    
+
+ 
+
+
     
   }
 

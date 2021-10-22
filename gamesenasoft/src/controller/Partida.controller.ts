@@ -88,7 +88,7 @@ export class PartidaController {
                 try {
                     await playerRepository.save(jugador);
                     await gameRepository.save(game);
-                    res.status(200).json({message:'Player created successfully ' , game});
+                    res.status(200).json({message:'Game created successfully ' , game});
                 } catch (error) {
                     res.status(400).json({message:'Bad code!'})
                 }

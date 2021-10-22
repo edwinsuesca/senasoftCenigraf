@@ -14,6 +14,7 @@ import { catchError, map } from 'rxjs/operators';
 export class GameService {
 
   constructor(private http: HttpClient, private router: Router) { }
+  
 
   startGame(game: Game):Observable<Game|void>{
     return this.http
@@ -32,7 +33,8 @@ export class GameService {
             .post<Player>(`${environment.API_URL}/jugador`, player)
             .pipe(
               map((jugador:Player)=>{
-                console.log('Jugador->', jugador)
+                console.log('Jugador->', jugador);
+                
                 return jugador;
               })
             )

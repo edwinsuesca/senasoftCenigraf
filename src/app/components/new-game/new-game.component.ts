@@ -56,7 +56,9 @@ export class NewGameComponent implements OnInit {
       this.gameSvc.startPlayer(formValue).subscribe((res)=>{
         if(res){
           console.log(res);
-          this.router.navigate(['/game', res.codPartida]);
+          
+          this.router.navigate(['/game']);
+
         }
       })
     )
