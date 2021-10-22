@@ -5,8 +5,9 @@
 @import "./../../../modulos/mixin";
 
 img{
-    width: 100%;
-    max-width: 400px;
+    width: 40vw;
+    min-width: 400px;
+    max-width: 800px;
 }
 
 form{
@@ -34,8 +35,14 @@ form{
     margin: 70px;
 }
 
+.button-home {
+    display: flex;
 .button2{
     font-size: 1.3em;
     width: fit-content;
     padding: 10px 20px;
+    margin: 0 10px;
+    background: $color1;
+    color: $colorGray1;
+}
 }

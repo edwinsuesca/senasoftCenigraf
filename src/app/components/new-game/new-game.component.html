@@ -1,6 +1,15 @@
 <mat-card-content class="mainContainer">
     <img class="logo" src="../../../assets/img/logoBug.svg" alt="">
-    <button class="btn button1">Ingresa el código AB19F5</button>
+
+    <button class="btn button1">Copia y pega el código </button>
+
+    <div class="copy">
+    <span class="btn button3" id="p1"> AB19F5 </span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path id="copy-regular" d="M433.941,65.941,382.059,14.059A48,48,0,0,0,348.118,0H176a48,48,0,0,0-48,48V96H48A48,48,0,0,0,0,144V464a48,48,0,0,0,48,48H272a48,48,0,0,0,48-48V416h80a48,48,0,0,0,48-48V99.882a48,48,0,0,0-14.059-33.941ZM266,464H54a6,6,0,0,1-6-6V150a6,6,0,0,1,6-6h74V368a48,48,0,0,0,48,48h96v42A6,6,0,0,1,266,464Zm128-96H182a6,6,0,0,1-6-6V54a6,6,0,0,1,6-6H288v88a24,24,0,0,0,24,24h88V362a6,6,0,0,1-6,6Zm6-256H336V48h9.632a6,6,0,0,1,4.243,1.757l48.368,48.368A6,6,0,0,1,400,102.368Z"/>
+      </svg>
+      
+    </div>
 
     <form [formGroup]="gameForm" (ngSubmit)="onGame()">
      
@@ -12,6 +21,7 @@
             formControlName="nickname"
             required>
     
-        <button class="btn button2">Unirse ahora</button>
+        <button routerLink="game" class="btn button2">Unirse ahora</button>
     </form>
 </mat-card-content>
+

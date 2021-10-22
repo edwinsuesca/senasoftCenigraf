@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './new-game.component.html',
   styleUrls: ['./new-game.component.scss']
 })
+
 export class NewGameComponent implements OnInit {
   private subscription: Subscription = new Subscription();
   gameForm=this.fb.group({
@@ -61,3 +62,5 @@ export class NewGameComponent implements OnInit {
   };
 
 }
+
+

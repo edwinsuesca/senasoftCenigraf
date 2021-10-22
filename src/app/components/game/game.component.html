@@ -5,36 +5,37 @@
             <span class="nickName">Nick Name</span>
             <div class="flex">
                 <div class="avatarContainer">
-                    <img class="avatar" src="../../../assets/img/avatars/man1.svg" alt="">
+                    <img class="avatar" src="../../../assets/img/avatars/avatar1.png" alt="">
                 </div>
-        
+
                 <div class="cardsContainer">
                     <div *ngFor="let card of player1">
-                        <img class="card" src="../../../assets/img/Programadores/Carlos.svg" alt="">
+                        <img class="card" src="../../../assets/img/cartas/modulos/Nomina.svg" alt="">
                     </div>
                 </div>
             </div>
 
             <div class="controls flex">
-                <button class="btn button1">Preguntar</button>
-                <button class="btn button2">Acusar</button>
-            </div>
-        </div>
-
-        <div class="playerA flex">
-            <div class="avatarContainer">
-                <img class="avatar" src="../../../assets/img/avatars/man1.svg" alt="">
-            </div>
-
-            <div class="cardsPlayers">
-                <img class="card" src="../../../assets/img/backCard.svg" alt="">
-                <img class="card" src="../../../assets/img/backCard.svg" alt="">
-                <img class="card" src="../../../assets/img/backCard.svg" alt="">
-                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <button class="btn button1" (click)="modePanel('question')">Preguntar</button>
+                <button class="btn button2" (click)="modePanel('accusation')">Acusar</button>
             </div>
         </div>
 
         <div class="playerB flex">
+            <span class="nickName">Nick name player B</span>
+            <div class="avatarContainer">
+                <img class="avatar" src="../../../assets/img/avatars/avatar2.png" alt="">
+            </div>
+
+            <div class="cardsPlayers">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+                <img class="card" src="../../../assets/img/backCard.svg" alt="">
+            </div>
+        </div>
+
+        <div class="playerA flex">
 
             <div class="cardsPlayers">
                 <img class="card" src="../../../assets/img/backCard.svg" alt="">
@@ -44,13 +45,15 @@
             </div>
 
             <div class="avatarContainer">
-                <img class="avatar" src="../../../assets/img/avatars/man1.svg" alt="">
+                <img class="avatar" src="../../../assets/img/avatars/avatar3.png" alt="">
             </div>
+            <span class="nickName">Nick name player A</span>
         </div>
 
         <div class="playerC flex">
+            <span class="nickName">Nick name player C</span>
             <div class="avatarContainer">
-                <img class="avatar" src="../../../assets/img/avatars/man1.svg" alt="">
+                <img class="avatar" src="../../../assets/img/avatars/avatar4.png" alt="">
             </div>
 
             <div class="cardsPlayers">
@@ -60,45 +63,62 @@
                 <img class="card" src="../../../assets/img/backCard.svg" alt="">
             </div>
         </div>
-            
 
+        <div class="generateQuestion" #generateQuestion>
+            <span class="actionTurn">{{actionTurn}}</span>
+            <div class="cartas">
+                <img src="./../../../assets/img/cartas/programadores/Juan.svg" alt="">
+                <img src="./../../../assets/img/cartas/errores/Stack.svg" alt="">
+                <img src="./../../../assets/img/cartas/modulos/Recibos.svg" alt="">
+            </div>
+            <div class="sentence">
+                <span>¿Fue Pedro quien generó el error 404 en el módulo Recibos?</span>
+            </div>
+        </div>
     </div>
     <div class="Notes" #notes>
-        <h2>Hoja de Notas</h2>
+        <h2>{{panelTitle}}</h2>
         <div class=" containerflex flex">
             <div class="dev groups flex">
                 <h3>Programadores</h3>
-                <span (mouseover)="playAudio()">Antonia</span>
-                <span (mouseover)="playAudio()">Carolina</span>
-                <span (mouseover)="playAudio()">Carlos</span>
-                <span (mouseover)="playAudio()">Juan</span>
-                <span (mouseover)="playAudio()">Juanita</span>
-                <span (mouseover)="playAudio()">Manuel</span>
-                <span (mouseover)="playAudio()">Pedro</span>
+                <span id="antonia" #antonia (mouseover)="playAudio()" (click)="checkCard(this.antonia)">Antonia</span>
+                <span id='carolina' #carolina (mouseover)="playAudio()"
+                    (click)="checkCard(this.carolina)">Carolina</span>
+                <span id='carlos' #carlos (mouseover)="playAudio()" (click)="checkCard(this.carlos)">Carlos</span>
+                <span id='juan' #juan (mouseover)="playAudio()" (click)="checkCard(this.juan)">Juan</span>
+                <span id='juanita' #juanita (mouseover)="playAudio()" (click)="checkCard(this.juanita)">Juanita</span>
+                <span id='manuel' #manuel (mouseover)="playAudio()" (click)="checkCard(this.manuel)">Manuel</span>
+                <span id='pedro' #pedro (mouseover)="playAudio()" (click)="checkCard(this.pedro)">Pedro</span>
             </div>
-    
-            <div class="modules groups flex">
-                <h3>Módulos</h3>
-                <span>Comprobante Contable</span>
-                <span>Contabilidad</span>
-                <span>Facturación</span>
-                <span>Nómina</span>
-                <span>Recibos</span>
-                <span>Usuarios</span>
-            </div>
-    
+
             <div class="errors groups flex">
                 <h3>Errores</h3>
-                <span>Encoding error</span>
-                <span>Error 404</span>
-                <span>Memory out of range</span>
-                <span>Null pointer</span>
-                <span>Stack Overflow</span>
-                <span>Syntax error</span>
+                <span id='encoding' #encoding (mouseover)="playAudio()" (click)="checkCard(this.encoding)">Encoding
+                    error</span>
+                <span id='error' #error (mouseover)="playAudio()" (click)="checkCard(this.error)">Error 404</span>
+                <span id='memory' #memory (mouseover)="playAudio()" (click)="checkCard(this.memory)">Memory out of
+                    range</span>
+                <span id='null' #null (mouseover)="playAudio()" (click)="checkCard(this.null)">Null pointer</span>
+                <span id='stack' #stack (mouseover)="playAudio()" (click)="checkCard(this.stack)">Stack Overflow</span>
+                <span id='syntax' #syntax (mouseover)="playAudio()" (click)="checkCard(this.syntax)">Syntax error</span>
+            </div>
+
+            <div class="modules groups flex">
+                <h3>Módulos</h3>
+                <span id='comprobante' #comprobante (mouseover)="playAudio()"
+                    (click)="checkCard(this.comprobante)">Comprobante Contable</span>
+                <span id='contabilidad' #contabilidad (mouseover)="playAudio()"
+                    (click)="checkCard(this.contabilidad)">Contabilidad</span>
+                <span id='facturacion' #facturacion (mouseover)="playAudio()"
+                    (click)="checkCard(this.facturacion)">Facturación</span>
+                <span id='nomina' #nomina (mouseover)="playAudio()" (click)="checkCard(this.nomina)">Nómina</span>
+                <span id='recibos' #recibos (mouseover)="playAudio()" (click)="checkCard(this.recibos)">Recibos</span>
+                <span id='usuarios' #usuarios (mouseover)="playAudio()"
+                    (click)="checkCard(this.usuarios)">Usuarios</span>
             </div>
         </div>
-        <div class="switch" #arrow>
-            <div class="arrow"></div>
+        <div class="switch" #arrowContainer (click)="modePanel('page')">
+            <div class="arrow" #arrow></div>
         </div>
     </div>
 </div>

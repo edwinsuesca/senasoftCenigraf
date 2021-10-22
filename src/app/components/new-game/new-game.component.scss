@@ -31,11 +31,50 @@ form{
     transform:translate(-50%, -50%);
 }
 .button1{
-    margin: 70px;
+    color: $colorGray5;
+    background: none;
+    cursor: none;
+    font-size: 1.1rem;
+    font-weight: 300;
+    svg {
+        width: 50px;
+        height: 50px;
+        border-radius: 15px;
+        background: $color1;
+        padding: 10px 20px;
+    }
 }
 
 .button2{
     font-size: 1.3em;
     width: fit-content;
     padding: 10px 20px;
+    background: $color1;
+    color: $colorGray1;
 }
+
+.copy {
+display: flex;
+align-items: center;
+
+.button3 {
+    margin: 10px 0;
+    font-size: 1.8em;
+    padding: 10px 20px;
+    color: $color1;
+}
+
+svg {
+    padding: 3px;
+    height: 35px;
+    width: 35px;
+    background: $color1;
+    border-radius: 10px;
+    
+}
+
+path {
+    fill: $colorGray1;
+}
+}
+
